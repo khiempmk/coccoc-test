@@ -21,11 +21,13 @@ object ProblemIII {
 
 
     sort("input_data\\", 0L, Long.MaxValue, spark);
+
+    // read the sorted output folder
     val df = spark.read.schema(entity_structure)
       .format("csv")
       .option("delimiter", "\t")
       .load("final_sort\\result")
-
+    // show the sorted output df
     df.show()
     print("SortP is completed successfully")
 

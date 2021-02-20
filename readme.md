@@ -10,7 +10,8 @@ Apache Maven 3.6.2\
 IDE : IntelliJ Ide 2019.2.2*
 
 
-In this repository, there are code of 2 problems ( problemI and problemIII ) , Solution of problemV is written right at the end of file readme.md .
+In this repository, there are code of 2 problems ( problemI and problemIII ) , Solution of problemV is written right at the end of file readme.md . \
+Each time you run this code, make sure the folder input_data has only file *hash_catid_count.csv* and folder final_sort/result is empty
 ## Problem I :
  ### I.1 & I.2
 	- Using spark sql to process input data as data frames
