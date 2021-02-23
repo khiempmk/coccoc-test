@@ -6,7 +6,8 @@ import org.apache.spark.sql.{Row, SparkSession}
 
 object ProblemI {
   def main(args: Array[String]): Unit = {
-    System.setProperty("hadoop.home.dir", "C:\\hadoop-common-2.2.0-bin-master\\")
+    // Uncomment if using WindowsOS
+    //System.setProperty("hadoop.home.dir", "C:/hadoop-common-2.2.0-bin-master/")
     val session = SparkSession.builder()
       .appName("CoccocTest1")
       .master("local[2]")
@@ -21,7 +22,7 @@ object ProblemI {
                     .option("delimiter", "\t")        // define delimiter of csv source file
                     .schema(arrayStructureSchema)     // define schema for dataframe
                     .option("mode", "DROPMALFORMED")  // ignore all  null row
-                    .load("input_data\\hash_catid_count.csv")
+                    .load("input_data/hash_catid_count.csv")
     df.printSchema()
     // category_ids and  category_counts are in String type, we need cast them to array type
     // Create new dataframe by add new columns with array<long> type of current string columns(category_ids, category_counts)

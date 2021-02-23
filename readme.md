@@ -12,6 +12,17 @@ IDE : IntelliJ Ide 2019.2.2*
 
 In this repository, there are code of 2 problems ( problemI and problemIII ) , Solution of problemV is written right at the end of file readme.md . \
 Each time you run this code, make sure the folder input_data has only file *hash_catid_count.csv* and folder final_sort/result is empty
+
+#### Build&Run Instructions
+Step 1: Install IDE with scala plugin, maven, scala (version mentioned above) \
+Step 2: 
+If you are using window OS, please download `hadoop-common-2.2.0-bin-master` from https://github.com/srccodes/hadoop-common-2.2.0-bin and put it in directory `C:\ ` (Path form :`C:\hadoop-common-2.2.0-bin-master\`)\
+If you are using other OS, please comment this line on ProblemI and ProblemIII code :\
+ `System.setProperty("hadoop.home.dir", "C:\\hadoop-common-2.2.0-bin-master\\")` \
+Step 3:
+Build and Run as normal  Java/Scala programs
+
+    
 ## Problem I :
  ### I.1 & I.2
 	- Using spark sql to process input data as data frames

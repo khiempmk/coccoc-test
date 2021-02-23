@@ -13,20 +13,21 @@ object ProblemIII {
     .add("category_ids", "string")
     .add("category_counts", "string")
   def main(args: Array[String]): Unit = {
-    System.setProperty("hadoop.home.dir", "C:\\hadoop-common-2.2.0-bin-master\\")
+    // Uncomment if using WindowsOS
+    //System.setProperty("hadoop.home.dir", "C:\\hadoop-common-2.2.0-bin-master\\")
     val spark = SparkSession.builder
       .appName("CoccocTest3")
       .master("local[2]")
       .getOrCreate()
 
 
-    sort("input_data\\", 0L, Long.MaxValue, spark);
+    sort("input_data/", 0L, Long.MaxValue, spark);
 
     // read the sorted output folder
     val df = spark.read.schema(entity_structure)
       .format("csv")
       .option("delimiter", "\t")
-      .load("final_sort\\result")
+      .load("final_sort/result")
     // show the sorted output df
     df.show()
     print("SortP is completed successfully")
@@ -61,9 +62,9 @@ object ProblemIII {
           .partitionBy("class")   // Separate using partitionBy
           .csv(inputFolder)
         // Sort left part
-        sort(inputFolder + "class=0\\", left, mid-1,spark);
+        sort(inputFolder + "class=0/", left, mid-1,spark);
         // Sort right part
-        sort(inputFolder + "class=1\\", mid, right,spark);
+        sort(inputFolder + "class=1/", mid, right,spark);
       }
 
 }
